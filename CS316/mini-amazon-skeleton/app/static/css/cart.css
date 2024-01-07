@@ -1,0 +1,399 @@
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.sidenav .navigation-links {
+    display: flex;
+    justify-content: space-between;
+    color: aliceblue; 
+    text-align: right; 
+    margin-bottom: 25px;
+}
+.sidenav .navigation-links .right-nav {
+    display: flex;
+    /* margin-inline-start: 75%; */
+    margin-inline-end: 5px;
+}
+.sidenav .navigation-links .right-nav #logout-button{
+    width: 100px;
+    height: 40px;
+    background-color: aliceblue;
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+    transition-duration: 0.4s;
+
+}
+.sidenav .navigation-links .right-nav #logout-button:hover {
+    color: white;
+    background-color:rgb(56, 141, 133);
+}
+.sidenav .navigation-links .right-nav #cart {
+    margin-inline-end: 10px;
+    border-bottom: 3px solid rgb(56, 141, 133);
+    
+}
+.sidenav .navigation-links #welcome-message {
+    margin-inline-start: 10px;
+}
+#cart_options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cart_info {
+    /* width: 50vw; */
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* My Cart */
+
+
+.section_title {
+    font-family: Rosario;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #1A535C;
+}
+
+
+
+
+/* ITEM */
+.label {
+    /* position: absolute;
+    width: 153px;
+    height: 27px;
+    left: 44px;
+    top: 417px; */
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    
+    color: #4ECDC4;
+}
+.line {
+    /* position: absolute;
+    width: 752px;
+    height: 0px;
+    left: 29px;
+    top: 453px; */
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
+    border: 1.5px solid rgba(189, 192, 189, 0.7);
+    background:rgba(189, 192, 189, 0.7);
+    
+}
+
+.item_info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.partition_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+}
+.item_name {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #1A535C;
+}
+.seller_name {
+    margin-block-start: 0.3em;
+    font-family: Rosario;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #828282;
+}
+.quant_options {
+    display: flex;
+    flex-direction: row;
+}
+.price {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 30px;
+
+    color: #1A535C;
+    text-align: right;
+}
+.action_options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.quant_text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    margin-inline-end: 8px;
+    /* line-height: 19px; */
+
+    color: #828282;
+}
+.curr_quant {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    margin-inline-start: 5px;
+    margin-inline-end: 5px;
+    color: #828282;
+}
+/* Rectangle 4 */
+
+/* position: absolute;
+left: 932px;
+top: 708px; */
+.order_button {
+    width: 354px;
+    height: 50px;
+    background: #4ECDC4;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.order_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 3px solid #FFE66D;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    /* border: #FFE66D;
+    border-width: 2px; */
+}
+/* Rectangle 8 */
+.cart_total {
+    display: flex;
+    flex-direction: row;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+/* Subtotal (4): */
+
+.cart_total_text {
+    font-family: Rosario;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 32px;
+    /* margin-block-start: 0.3em; */
+
+    color: #1A535C;
+    margin-inline-start: 0.5em;
+}
+
+.order_text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 35px;
+    text-align: center;
+
+    color: #1A535C;
+    margin-block-start: 0.25em;
+}
+
+
+
+/* Ellipse 13
+
+position: absolute;
+width: 40px;
+height: 40px;
+left: 713px;
+top: 580px;
+
+background: #FFE66D; */
+
+
+/* AK Anne Klein */
+
+/* position: absolute;
+width: 109px;
+height: 22px;
+left: 44px;
+top: 501px;
+
+font-family: Rosario;
+font-style: normal;
+font-weight: 300;
+font-size: 18px;
+line-height: 22px;
+
+color: #828282; */
+
+
+
+/* trash-4-24 1 */
+
+/* position: absolute;
+width: 30px;
+height: 30px;
+left: 718px;
+top: 585px;
+
+background: url(.png); */
+
+
+/* PRICE */
+
+/* position: absolute;
+width: 153px;
+height: 27px;
+left: 700px;
+top: 417px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 23px;
+
+color: #4ECDC4; */
+
+
+
+/* minus-5-16 (1) 4 */
+
+/* position: absolute;
+width: 17px;
+height: 17px;
+left: 136px;
+top: 597px;
+
+background: url(minus-5-16 (1).png); */
+
+
+/* QUANTITY: 1 */
+
+/* position: absolute;
+width: 126px;
+height: 23px;
+left: 43px;
+top: 593px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 19px;
+
+color: #828282; */
+
+
+
+/* NicePng_plus-symbol-png_1152917 11 */
+
+/* position: absolute;
+width: 17px;
+height: 17px;
+left: 173px;
+top: 597px;
+
+background: url(NicePng_plus-symbol-png_1152917.png); */
+
+
+/* minus-5-16 (1) 5 */
+
+/* position: absolute;
+width: 17px;
+height: 17px;
+left: 136px;
+top: 597px;
+
+background: url(minus-5-16 (1).png); */
+
+
+/* QUANTITY: 1 */
+
+/* position: absolute;
+width: 126px;
+height: 23px;
+left: 43px;
+top: 593px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 19px;
+
+color: #828282; */
+
+
+
+/* NicePng_plus-symbol-png_1152917 12 */
+
+/* position: absolute;
+width: 17px;
+height: 17px;
+left: 173px;
+top: 597px;
+
+background: url(NicePng_plus-symbol-png_1152917.png); */
+
+
+
+/* Mary Janes */
+
+/* position: absolute;
+width: 259px;
+height: 38px;
+left: 44px;
+top: 468px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 23px;
+
+color: #1A535C; */
+
+
+
+/* $25 */
+
+/* position: absolute;
+width: 55px;
+height: 38px;
+left: 705px;
+top: 462px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 26px;
+line-height: 30px;
+
+color: #1A535C; */
+

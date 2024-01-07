@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+<!-- {% block topnav %} -->
+{% block header %}
+<div class="topnav">
+  <a href="{{ url_for('index.index', page_number = 1) }}">
+    <div class="logobox">
+      <img
+        class="logo"
+        src="/static/images/shop.png"
+        alt="Stop n' Shop Logo"
+      />
+      <text class="toptext">Stop 'n Shop</text>
+    </div>
+  </a>
+  {%if current_user.is_authenticated %}
+      <div class="right-nav">
+        <a id = "cart" href="{{ url_for('users.cart') }}"> <img src="../static/images/cart-48.png" width="40px"> </a>
+        <a id="profile" href="{{ url_for('users.profile') }}"><img src="../static/images/profile.png" width = 40px></a>
+        <a id="logout-button" href="{{ url_for('users.logout') }}" type="button" class="btn btn-light">Log out</a>
+      </div>
+    {% else %}
+      <div>
+        <a href="{{ url_for('users.login') }}" class="topbutton">Login</a>
+      </div>
+  {% endif %}
+</div>
+{% endblock %}
+<!-- {% endblock %} -->

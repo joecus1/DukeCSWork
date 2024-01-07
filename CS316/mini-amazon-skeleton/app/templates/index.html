@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "topnavsearch.html" %}
+<div class="nav"> 
+  {% if search == False %}
+    <div class="arrows">
+      {% if current_page == 1 %} <div> &nbsp;&nbsp;&nbsp;</div>
+      {% else %} 
+      <div class="arrow">
+        <a href="{{url_for('index.index', page_number = current_page - 1)}}">
+          <img class = "arrow-image" src = "../static/images/left-arrow.png">
+        </a>
+      </div>
+      {% endif %}
+      <div id = "current_page"> page: {{ current_page}} </div>
+      {% if current_page == 100 %} <div>&nbsp;&nbsp;&nbsp;</div>
+      {% else %} 
+      <div class="arrow">
+        <a href="{{url_for('index.index', page_number = current_page + 1)}}">
+          <img class = "arrow-image" src = "../static/images/right-arrow.png">
+        </a>
+      </div>
+    </div>
+    <form class = "my-form" action="{{ url_for('index.get_search',page_number = 1) }}" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+      <input type="search" placeholder="Search" name="q">
+      <button type="submit"><img src="../static/images/image-button.png" height = "20"></button>
+    </form>
+    {% endif %}
+  {% else %}
+    <div class="arrows">
+      {% if current_page == 1 %} <div> &nbsp;&nbsp;&nbsp;</div>
+      {% else %} <div class="arrow">
+      <a href="{{url_for('index.get_search', page_number = current_page - 1, search = query)}}">
+        <img class = "arrow-image" src = "../../static/images/left-arrow.png">
+      </a></div>
+      {% endif %}
+    <div id = "current_page">{{ current_page}} </div>
+      {% if current_page == 100 %} <div></div>
+      {% else %} 
+      <div class="arrow">
+        <a href="{{url_for('index.get_search', page_number = current_page + 1, search = query)}}">
+          <img class = "arrow-image" src = "../../static/images/right-arrow.png">
+        </a>
+      </div>
+    </div>
+    <form class = "my-form" action="{{ url_for('index.get_search',page_number = 1) }}" style="display:flex; flex-direction: row; justify-content: center; align-items: center">
+      <input type="search" placeholder="Search" name="q">
+      <button type="submit"><img src="../../static/images/image-button.png" height = "20"></button>
+    </form>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="products_section">
+<div class="headers">
+  <div class="section_title">
+    Product Name
+  </div>
+  <div class="section_title">
+    Category
+  </div>
+</div>
+<div id="yellow-line"></div>
+{% for product in avail_products%}
+  <div class="single_product">
+    {% if current_user.is_authenticated %}
+      <a class = "product_name" href="{{ url_for('products.viewProduct', product_id = product.id)}}">{{product.name}}</a> 
+    {% else %}
+    <p class="product_name"> {{product.name}} </p>
+    {% endif %}
+    <p class="product_cat"> {{product.category}} </p>
+  </div>
+  <div class="line"></div>
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block script %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+{% include "topnav.html" %}
+<canvas id="barGraph"></canvas>
+<script>
+    var ctx = document.getElementById('barGraph').getContext('2d');
+    var barGraph = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: {{ labels | safe }},
+            datasets: [{
+                data: {{ values | safe }},
+                fill: false,
+                borderColor: "rgb(75, 192, 192)",
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: "Quantities"
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: "Product Names"
+                    }
+                },
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        },
+    })
+</script>
+{% endblock %}

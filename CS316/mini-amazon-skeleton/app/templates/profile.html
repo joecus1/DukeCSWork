@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "topnav.html" %}
+
+{% if auth %}
+<div class="page">
+<div class="right">
+  <div class="info-section">
+    <h2 class="my-info-title">My Information:<br></h2>
+    <div class="info-sections">
+    <div class="personal-info">
+      <div class="name-id">
+      <div class="user-info">
+        <p class="info-label">Name: </p>
+
+          <p class="actual-info">{{current_user.firstname }} {{current_user.lastname }}</p>
+
+      </div>
+      <div class="user-info">
+        <p class="info-label">ID: </p>
+
+          <p class="actual-info">{{current_user.id }}</p>
+
+      </div>
+      </div>
+      <div class="email-addr">
+        <div class="user-info">
+          <p class="info-label">Email: </p>
+
+            <p class="actual-info">{{current_user.email}}</p>
+
+        </div>
+        <div class="user-info">
+          <p class="info-label">Address: </p>
+            <p class="actual-info">{{current_user.addr}}</p>
+
+        </div>
+      </div>
+    </div>
+    <div class="edit-info">
+      <div class = "edit-button">
+        <a href="{{ url_for('users.editInfo') }}">
+          <p class="edit-text">Edit My Information</p></a>
+      </div>
+      <div class = "edit-button" >
+        <a href="{{ url_for('users.changePassword') }}">
+          <p class="edit-text" id="password">Change Password</p>
+          </a>
+      </div>
+      </div>
+  </div>
+  </div>
+
+
+<!-- <br>
+<p>ID: {{ current_user.id }} <br></p>
+<p>Email: {{ current_user.email }} <br></p>
+<p>Name: {{ current_user.firstname }} {{ current_user.lastname }} <br></p>
+<p>Address: {{ current_user.addr }} <br></p>
+<p>Balance: {{ current_user.balance }} <br></p> -->
+<div class="balance-section">
+  <p class="balance-title"> Balance: ${{current_user.balance}}</p>
+  <div class="balance-button">
+    <a href="{{ url_for('users.addBalance') }}">
+      <p class="balance-text">ADD</p></a>
+  </div>
+  <div class="balance-button">
+    <a href="{{ url_for('users.withdrawBalance') }}">
+      <p class="balance-text">WITHDRAW</p></a>
+  </div>
+</div>
+<div class="seller-reviews-section">
+  <div class="s-r-button">
+    <a href="{{ url_for('messaging.revPerUser',fname = current_user.firstname, lname = current_user.lastname, buyer_id = current_user.id,sellers=0)}}">
+      <p class="s-r-text">See my reviews</p></a>
+  </div>
+{% if isSeller %}
+<div class="isseller">
+    <div class="isseller-button">
+      <a id="inventory-button" href="{{ url_for('inventory.inventory') }}">
+        <p class="isseller-text">Manage Inventory</p></a>
+    </div>
+    <div class="isseller-button">
+      <a id="currentorders-button" href="{{ url_for('orders.currentOrders', status=0) }}">
+        <p class="isseller-text">Current Orders</p></a>
+    </div>
+    <div class="isseller-button">
+      <a id="pastorders-button" href="{{ url_for('orders.currentOrders', status=1) }}">
+        <p class="isseller-text">Past Orders</p></a>
+    </div>
+    <div class="isseller-button">
+      <a id="topSellers-button" href="{{ url_for('orders.topSellers') }}">
+        <p class="isseller-text">View Your Top Selling Items</p></a>
+    </div>
+  </div >
+{% else %}
+<!-- <div> -->
+    <div class="s-r-button">
+      <a id="makeseller-button" href="{{ url_for('users.makeSeller') }}">
+        <p class="s-r-text">Become a Seller</p></a>
+    </div>
+<!-- </div> -->
+{% endif %}
+</div>
+
+<br>
+</div>
+<div class = "left">
+<h2 class="purchase-history-text">Purchase History:</h2>
+<div class="form-search-section">
+<form action="" method="post">
+  {{ form2.hidden_tag() }}
+  <div class="form-search">
+      <p>
+          {{ form2.search.label }}<br/>
+          {{ form2.search(size=18) }}<br/>
+          {% for error in form2.search.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+      </p>
+      <p>
+          {{ form2.submit2() }}
+      </p>
+    </div>
+</form>
+
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+  <div class="form-search">
+      <p>
+          {{ form.sort.label }}<br/>
+          {{ form.sort(size=3) }}<br/>
+          {% for error in form.sort.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+      </p>
+      <p>
+          {{ form.submit() }}
+      </p>
+    </div>
+</form>
+</div>
+
+<div class="yellow-line"></div>
+{% for purchase in purchases %}
+<div class="purchase-info">
+  <div class="left-info">
+    <a href="{{ url_for('messaging.chat',product_name = purchase.name, product_id = purchase.pid)}}"><p class="product-name">{{purchase.name}}</p></a>
+    <ul class="order-information">
+      <li> <p class="order-info-text"> Quantity:  {{purchase.quantity}}</p></li>
+      <li> <p class="order-info-text"> Price-per-unit: {{purchase.price}}</p></li>
+      <li> <p class="order-info-text"> Total Price: {{ purchase.quantity * purchase.price }}</p></li>
+      <li> <p class="order-info-text"> Order ID: {{purchase.id}} </p></li>
+      <li> <p class="order-info-text"> Status: {{purchase.status}} </p></li>
+    </ul>
+  </div>
+  <div class="right-info">
+    <p class="time-purchased">{{purchase.time_purchased }}</p>
+  </div>
+</div>
+  <div class="line"></div>
+{%endfor%}
+
+
+{% else %}
+
+<p>Register to see your info. <br></p>
+
+{% endif %}
+</div>
+</div>
+
+{% endblock %}

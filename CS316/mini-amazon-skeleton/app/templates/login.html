@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+<link rel="stylesheet" href = "{{ url_for('static', filename='css/login.css') }}" />
+{% block content %}
+<div class= "Login">
+
+<div class = "ellipse" id="ellipse-1"></div>
+<div class = "ellipse" id="ellipse-2"></div>
+<div class = "ellipse" id="ellipse-3"></div>
+<div class = "ellipse" id="ellipse-4"></div>
+<div class = "ellipse" id="ellipse-5"></div>
+<div class = "ellipse" id="ellipse-6"></div>
+<div class = "ellipse" id="ellipse-7">
+</div>
+<div class = "ellipse" id="ellipse-7"></div>
+<div class = "ellipse" id="ellipse-8"></div>
+<div class = "ellipse" id="ellipse-9"></div>
+<div class = "ellipse" id="ellipse-10"></div>
+<div class = "ellipse" id="ellipse-11"></div>
+<div class="form">
+<form action="" method="post" novalidate>
+  {{ form.hidden_tag() }}
+  <a href="{{ url_for('index.index', page_number = 1) }}">
+    <div class="logobox">
+      <img
+        class="logo"
+        src="/static/images/shop.png"
+        alt="Stop n' Shop Logo"
+      />
+    </div>
+  </a>
+  
+  <p class="input-section">
+    {{ form.email.label }} <br/>
+    {{ form.email(size=32) }} <br/>
+    {% for error in form.email.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+  </p>
+  <p class = "input-section">
+    {{ form.password.label }}<br/>
+    {{ form.password(size=32) }}<br/>
+    {% for error in form.password.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+  </p>
+  <p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+  </p>
+  {{ form.submit(class_="btn btn-black") }}
+  <p id="no-account-label"> Don't have an account? </p>
+  <a id="no-account-link" href="{{ url_for('users.register') }}"> Create new account </a>
+</form>
+</div>
+</div>
+
+{% endblock %}

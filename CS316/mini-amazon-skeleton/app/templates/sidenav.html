@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block sidenav %}
+<div class="sidenav">
+    {% block msg %}
+      <h1 style="color:aliceblue">Welcome to CompSci 316 Mini Amazon!</h1>
+      <div class="navigation-links">
+        {% if current_user.is_authenticated %}
+          <p id="welcome-message"> Hello {{current_user.firstname}}!</p>
+          <div class="right-nav">
+            <a id = "cart" href="{{ url_for('users.cart') }}"> <img src="../static/images/cart-48.png" width="40px"> </a>
+            <a id="logout-button" href="{{ url_for('users.logout') }}" type="button" class="btn btn-light">Log out</a>
+        </div>
+          {% else %}
+          <a href="{{ url_for('users.login') }}" type="button" class="btn btn-light">Log in</a>
+        {% endif %}
+      </div>
+    {% endblock %}
+  </div>
+  {% endblock %}

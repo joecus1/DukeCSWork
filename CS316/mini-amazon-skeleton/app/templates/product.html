@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "topnav.html" %}
+
+<h2>
+    {{product.name}}
+</h2>
+<td> <a href="{{ url_for('messaging.chat',product_name = product.name, product_id = product.id)}}">Reviews for this Product</a> </td>
+<br/>
+<td> Number of Ratings : {{number_ratings}} </td>
+<br/>
+<td> Average of Ratings : {{average_rating}} </td>
+<br/>
+{% if isSeller %}
+<td> <td> <a href="{{ url_for('inventory.addInventory', pid = product.id, fill=1)}}">Become a Seller of this Product</a> </td> </td>
+{% endif %}
+
+<h2>Description:</h2>
+ 
+  {% for line in desc_lines %}
+     <p>{{ line }}</p>
+  {% endfor %}
+<h2>Sellers:</h2>
+<table class='table table-hover table-bordered container'>
+  <thead class="thead-dark">
+  
+    <tr>
+      <!-- <th scope="col">Product ID</th> -->
+      <th scope="col">Seller Name</th> <!-- TODO: later on add link to seller page --> 
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for seller in sellers %}
+      <tr>
+        <!-- <th scope="row">{{product.id}}</th> -->
+        <!-- <td> <a href="{{ url_for('products.viewProduct', product_id = product.id)}}">{{product.name}}</a> </td> -->
+        <!-- <td>{{product.price}}</td> -->
+        <td><a href="{{ url_for('users.sellerPage', uid = seller.id) }}">{{seller.firstname }} {{seller.lastname}}</a></td>
+        <td> {{ seller.price }} </td>
+        {% if current_user.is_authenticated %} 
+          <td>
+            <a href="{{ url_for('users.addToCart', id = seller.product_id, uid = current_user.id, sid = seller.id) }}"> <img src="../../static/images/plus-5-32.gif" width="20px"> </a>
+          </td>
+        {% endif %} 
+      </tr>
+    {% endfor %}
+    {}
+  </tbody>
+</table>
+
+{% endblock %}

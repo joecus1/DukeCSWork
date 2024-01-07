@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "topnav.html" %}
+
+    <p>
+     {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+  </p>
+    <br><br>
+     <h2 class = "section_title">My Cart:</h2> 
+     <!-- <table class='table table-hover table-bordered container'>
+        <thead class="thead-light">
+        
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope = "col"> Quantity </th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in my_cart%}
+            <tr>
+              <td>{{product.name}}</td>
+              <td>{{product.price}}</td>
+              <td> {{ product.quantity }} </td>
+              <td id="cart_options">
+                <a href = "{{ url_for('users.addToCart', id = product.id, uid = current_user.id, sid = product.seller_id) }}"><img src="../static/images/plus-5-48.png" width="20px"></a>
+                <a href = "{{ url_for('users.removeSingleQuantFromCart', pid = product.id, uid = current_user.id, sid = product.seller_id) }}"> <img src="../static/images/minus-5-48.png" width = "20px"> </a>
+                <a href="{{ url_for('users.removeFromCart', pid = product.id, uid = current_user.id, sid = product.seller_id) }}"> <img src="../static/images/x-mark-4-48.png" width="20px"> </a>
+                <a href= "{{ url_for('users.saveForLater', pid= product.id, uid = current_user.id, sid = product.seller_id, quantity = product.quantity) }}"> Save For Later  </a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table> -->
+      <div class = "cart_info">
+      <div class="labels">
+        <h2 class="label">ITEM</h2>
+        <h2 class="label">PRICE</h2>
+      </div>
+      {% for product in my_cart %}
+      <div class="line"></div>
+      <div class="item_info">
+        <div class="partition_info">
+          <div class="text_info">
+            <!-- <p class="item_name">{{product.name}}</p> -->
+            <a class = "item_name" href="{{url_for('products.viewProduct', product_id = product.id) }}">{{product.name}}</a>
+            <p class="seller_name">{{product.seller_name}}</p>
+          </div>
+          <div class="quant_options">
+            <p class="quant_text"> Quantity:   </p>
+            <a href = "{{ url_for('users.removeSingleQuantFromCart', pid = product.id, uid = current_user.id, sid = product.seller_id) }}"> <img src="../static/images/minus-5-48.png" width = "20px"> </a>
+            <p class="curr_quant">   {{product.quantity}}   </p>
+            <a href = "{{ url_for('users.addToCart', id = product.id, uid = current_user.id, sid = product.seller_id) }}"><img src="../static/images/plus-5-48.png" width="20px"></a>
+          </div>
+        </div>
+        <div class="partition_info">
+          <p class="price"> {{product.price}}</p>
+          <div class = "action_options">
+            <a href="{{ url_for('users.removeFromCart', pid = product.id, uid = current_user.id, sid = product.seller_id) }}"> <img src="../static/images/x-mark-4-48.png" width="20px"> </a>
+            <a href= "{{ url_for('users.saveForLater', pid= product.id, uid = current_user.id, sid = product.seller_id, quantity = product.quantity) }}"> <p class="save_later">Save For Later</p>  </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="line"></div>
+      </div>
+      {% if cart_length > 0 %}
+        <div class="order_section">
+          <div class="cart_total">
+            <h2 class="cart_total_text"> Cart Total: </h2>
+            <h2 class= "cart_total_text"> {{cart_total}} </h2>
+          </div>
+          <div class="order_button">
+              <a href = "{{ url_for ('users.place_order', uid = current_user.id) }}">
+                <p class="order_text">PLACE ORDER</p>
+              </a>
+          </div>
+        </div>
+      {% else %} <br> <br>
+      {% endif %}
+
+      <h2 class="section_title"> Your Saved Items: </h2>
+      <div class = "cart_info">
+        <div class="labels">
+          <h2 class="label">ITEM</h2>
+          <h2 class="label">PRICE</h2>
+        </div>
+        {% for product in saved %}
+        <div class="line"></div>
+        <div class="item_info">
+          <div class="partition_info">
+            <div class="text_info">
+              <!-- <p class="item_name">{{product.name}}</p> -->
+              <a class = "item_name" href="{{url_for('products.viewProduct', product_id = product.id) }}">{{product.name}}</a>
+              <p class="seller_name">{{product.seller_name}}</p>
+            </div>
+            <div class="quant_options">
+              <p class="quant_text"> Quantity:   </p>
+              <p class="curr_quant">   {{product.quantity}}   </p>
+            </div>
+          </div>
+          <div class="partition_info">
+            <p class="price"> {{product.price}}</p>
+            <div class = "action_options">
+              <a href="{{ url_for('users.removeFromSaved', pid = product.id, uid = current_user.id, sid = product.seller_id) }}"> <img src="../static/images/x-mark-4-48.png" width="20px"> </a>
+              <a href= "{{ url_for('users.moveToCart', pid= product.id, uid = current_user.id, sid = product.seller_id, quantity = product.quantity) }}"> Add to Cart </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <div class="line"></div>
+      </div>
+{% endblock %}
+

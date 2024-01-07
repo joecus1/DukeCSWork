@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "topnav.html" %}
+
+
+<h1>
+  Reviews for {{product_name}}
+</h1>
+ 
+<form action="" method="post">
+  <label >Sort by:</label>
+  <select name="sort" >
+    <option value="time">default</option>
+    <option value="ratings">Ratings</option>
+    <option value="time">Time</option>
+    <option value="positive">positive reviews only</option>
+    <option value="negative">negative reviews only</option>
+  </select>
+  {{ selector.go() }}  
+  
+</br>
+</form>
+
+
+{% for review in reviews%}
+<div style=" height:40px; width:40px; display: inline;">
+
+  <img src = "/static/images/avatar.webp"  style="width:40px; height:40px;">
+  <h4 ><a href="{{ url_for('messaging.revPerUser_div',fname = review.fname, lname = review.lname, buyer_id = review.uid)}}">{{review.fname  }} {{review.lname }}</a>  </h4>
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  {% for rat in range(review.rating|int)%}
+  <span class="fa fa-star" style="color: orange;"></span>
+  {% endfor %}
+  {% for rat in range(5-review.rating|int)%}
+  <span class="fa fa-star"></span>
+  {% endfor %}
+
+</div>
+
+<p id="review_{{review.uid}}"> {{review.review}}</p>
+
+<div style= "text-align: center;">
+
+  
+  {% if  current_user.id == review.uid %}
+  <div style="display: flex; justify-content: center;" >
+  <form action="" method="post">
+    <p> {{ delete_.delete() }}  </p>
+  </form>
+  <button onclick="show()">Edit</button>
+</div>
+  
+  <p id="edit_flash" style="display: none;"> To edit, please resubmit a new review and rating. </p>
+  <script>
+    function show() {
+      var x = document.getElementById("edit_flash");
+
+      x.style.display = "block";
+
+    };
+    </script>
+  {% endif %}
+</div>
+
+
+{% endfor %}
+
+
+
+{% if current_user.is_authenticated %}
+<h1>Submit Review</h1>
+
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+  <p>
+    {{ form.review.label }}<br/>
+    {{ form.review(size=32) }}<br/>
+    {% for error in form.review.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+  </p>
+  <p>
+    {{ form.rating.label }}<br/>
+    {{ form.rating(size=32) }}<br/>
+    {% for error in form.rating.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+  </p>
+  <p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+  </p>
+  <p>{{ form.submit() }}</p>
+</form>
+{% endif %}
+{% endblock %}
+

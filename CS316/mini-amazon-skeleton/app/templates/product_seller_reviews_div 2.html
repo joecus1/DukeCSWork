@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "topnav.html" %}
+
+<h1>{{ fname }} {{ lname }} <br></h1>
+
+<p>ID: {{ buyer_id_ }} <br></p>
+
+<p><a href="{{ url_for('messaging.revPerUser',fname = fname, lname = lname, buyer_id = buyer_id_, sellers=0)}}">All Product Reviews</a></p>
+
+<p><a href="{{ url_for('messaging.revPerUser',fname = fname, lname = lname, buyer_id = buyer_id_, sellers = 1)}}">All Seller Reviews</a></p>
+
+
+{% endblock %}

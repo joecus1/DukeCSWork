@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mini Amazon</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/login.css') }}"
+    />
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/cart.css') }}"
+    />
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/products.css') }}"
+    />
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/profile.css') }}"
+    />
+    {% block script %}{% endblock %}
+  </head>
+
+  <body>
+    {% block header %}
+    <!-- <div class="topnav">
+      <a href="{{ url_for('index.index', page_number = 1) }}">
+        <div class="logobox">
+          <img
+            class="logo"
+            src="/static/images/shop.png"
+            alt="Stop n' Shop Logo"
+          />
+          <text class="toptext">Stop 'n Shop</text>
+        </div>
+      </a>
+      <div>
+        <a href="{{ url_for('users.login') }}" class="topbutton">Login</a>
+      </div>
+    </div> -->
+    {% endblock %}
+    <div class="main">{% block content %}{% endblock %}</div>
+  </body>
+</html>

@@ -1,0 +1,332 @@
+/* Login */
+.Login {
+    position: fixed;
+    margin-top: 0%;
+    width: 1440px;
+    height: 1024px;
+
+    background: #1A535C !important;
+
+}
+
+.ellipse {
+    border-radius: 50%;
+}
+/* Ellipse 1 */
+#ellipse-1 {
+position: absolute;
+width: 591px;
+height: 600px;
+left: -246px;
+top: 61px;
+
+background: rgba(78, 205, 196, 0.2);
+}
+
+
+/* Ellipse 3 */
+#ellipse-3 {
+position: absolute;
+width: 502px;
+height: 546px;
+left: 1117px;
+top: 239px;
+
+background: rgba(78, 205, 196, 0.2);
+}
+
+/* Ellipse 4 */
+#ellipse-4 {
+position: absolute;
+width: 502px;
+height: 546px;
+left: 790px;
+top: 538px;
+
+background: #246B71;
+}
+
+/* Ellipse 5 */
+#ellipse-5 {
+position: absolute;
+width: 502px;
+height: 546px;
+left: -65px;
+top: 716px;
+
+background: rgba(78, 205, 196, 0.2);
+}
+
+/* Ellipse 10 */
+#ellipse-10 {
+position: absolute;
+width: 653px;
+height: 501px;
+left: 596px;
+top: 160px;
+
+background: rgba(78, 205, 196, 0.2);
+}
+
+/* Ellipse 9 */
+#ellipse-9 {
+position: absolute;
+width: 502px;
+height: 546px;
+left: 539px;
+top: 785px;
+
+background: rgba(78, 205, 196, 0.2);
+}
+
+/* Ellipse 8 */
+#ellipse-8 {
+position: absolute;
+width: 502px;
+height: 546px;
+left: 139px;
+top: 265px;
+
+background: rgba(78, 205, 196, 0.2);
+
+}
+/* Ellipse 2 */
+#ellipse-2 {
+position: absolute;
+width: 502px;
+height: 546px;
+left: 0px;
+top: -326px;
+
+background: rgba(78, 205, 196, 0.2);
+
+}
+/* Ellipse 6 */
+#ellipse-6 {
+position: absolute;
+width: 641px;
+height: 546px;
+left: 720px;
+top: -148px;
+
+background: rgba(78, 205, 196, 0.2);
+}
+
+/* Ellipse 7 */
+#ellipse-7 {
+position: absolute;
+width: 502px;
+height: 546px;
+left: 94px;
+top: 944px;
+
+background: rgba(78, 205, 196, 0.2);
+
+}
+/* Ellipse 11 */
+#ellipse-11 {
+position: absolute;
+width: 301px;
+height: 378px;
+left: 419px;
+top: -218px;
+
+background: rgba(78, 205, 196, 0.2);
+}
+
+.form {
+    z-index: 1;
+    position: fixed;
+    position: absolute;
+    width: 50vw;
+    height: 500px;
+    margin-right: 303px;
+    left: 25vw;
+    top: 170px;
+
+    background: #1A535C;
+    border: 3px solid #BDC0BD;
+    box-sizing: border-box;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    
+}
+.logobox {
+    margin-block-start: 3rem;
+    margin-block-end: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.input-section {
+    text-align: center;
+}
+label {
+    /* EMAIL */
+
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+/* line-height: 3x; */
+text-align: center;
+
+color: rgba(189, 192, 189, 0.6);
+
+}
+.logo {
+    width: 100px;
+    height: auto;
+}
+input#email {
+    background: #1A535C;
+    border: 3px solid #BDC0BD;
+    box-sizing: border-box;
+    color:#BDC0BD
+}
+input#password {
+    background: #1A535C;
+    border: 3px solid #BDC0BD;
+    box-sizing: border-box;
+}
+
+a#no-account-link {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #FFE66D;
+}
+
+p#no-account-label {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    text-align: center;
+    color: #BDC0BD;
+    margin-bottom: 0;
+}
+
+input#submit.btn.btn-black {
+    width: 200px;
+    height: 50px;
+    background: #4ECDC4 !important;
+    backdrop-filter: blur(4px); 
+    margin-block-end: 1rem;
+}
+input#submit.btn.btn-black:hover {
+    background:  #1a535cb6 !important;
+    border-color: #4ECDC4;
+    border-width: 2px;
+}
+
+a.btn.btn-secondary {
+    width: 200px;
+    height: 50px;
+    background:#4ecdc573 !important;
+    backdrop-filter: blur(4px);
+    border-color:#4ecdc573;
+}
+a.btn.btn-secondary:hover {
+    background:  #1a535cb6 !important;
+    border-color: #4ECDC4;
+    border-width: 2px;
+}
+
+/* Note: backdrop-filter has minimal browser support */
+/* border-radius: 10px;
+
+
+/* LOGIN */
+
+/* position: absolute;
+width: 356px;
+height: 32px;
+left: 541px; */
+/* top: 710px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+text-align: center;
+
+color: #1A535C;
+
+ */
+
+/* PASSWORD */
+
+/* position: absolute;
+width: 356px;
+height: 32px;
+left: 541px;
+top: 613px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+text-align: center;
+
+color: rgba(189, 192, 189, 0.6); */
+
+
+
+/* Don’t have an account? */
+
+/* position: absolute;
+width: 329px;
+height: 20px;
+left: 555px;
+top: 445px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 23px;
+text-align: center;
+
+color: #BDC0BD;
+ */
+
+
+/* Create new account */
+
+/* position: absolute;
+width: 329px;
+height: 20px;
+left: 555px;
+top: 470px;
+
+font-family: Roboto;
+font-style: italic;
+font-weight: 500;
+font-size: 18px;
+line-height: 21px;
+text-align: center;
+text-decoration-line: underline;
+
+color: #FFE66D;
+ */
+
+
+/* SeekPng 2 */
+
+/* position: absolute;
+width: 200px;
+height: 200px;
+left: 620px;
+top: 222px;
+
+background: url(.png);  */

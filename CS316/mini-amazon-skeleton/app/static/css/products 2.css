@@ -1,0 +1,121 @@
+.arrows {
+    /* margin-left: 100%;
+    margin-right: 20px; */
+    display: flex;
+    flex-direction: row;
+    margin-inline-start: 10px;
+    align-items: center;
+}
+.my-form{
+    margin-inline-end: 20px;
+}
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin-inline-start: 20px;
+    margin-inline-end: 20px; */
+    margin-block-start: 0.5em;
+    background: #FFE66D;
+    border-radius: 15px;
+
+}
+#name_column {
+    flex: 1;
+}
+
+.arrow-image {
+    height: 30px;
+}
+.arrow {
+    /* position: absolute; */
+    width: 67px;
+    height: 41px;
+    /* left: 1202px;
+    top: 798px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    /* background: #C4C4C4; */
+    border-radius: 15px;
+    border: 1px solid #828282;
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+}
+.arrow:hover {
+    background: #828282;
+}
+#current_page {
+    /* 1 */
+    font-family: Rosario;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 48px;
+
+    color: #828282;
+
+
+}
+/* Product Name */
+.headers {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.section_title {
+    font-family: Rosario;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 48px;
+
+    color: #4ECDC4;
+}
+
+#yellow-line{
+    margin-block-start: 0.5em;
+    border: 3px solid #FFE66D;
+}
+.single_product{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    margin-block-start: 0.5em;
+}
+.product_name{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 29px;
+    
+    color: #1A535C;
+}
+.product_name:hover{
+    color: #4ECDC4;
+}
+.product_cat {
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 29px;
+    text-align: right;
+    color: #1A535C;
+}
+.line{
+    border: 1px solid #C4C4C4;
+} 
+.products_section {
+    margin-inline-start: 20px;
+    margin-inline-end:20px;
+    margin-block-start: 1em;
+}
+
+
+
+
+

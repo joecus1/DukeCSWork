@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include "topnav.html" %}
+<form action="" method="post">
+  {{ form2.hidden_tag() }}
+      <p>
+          {{ form2.search.label }}<br/>
+          {{ form2.search(size=32) }}<br/>
+          {% for error in form2.search.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+      </p>
+      <p>
+          {{ form2.submit2() }}
+      </p>
+</form>
+{% if hasOrders %}
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+      <p>
+          {{ form.sort.label }}<br/>
+          {{ form.sort(size=3) }}<br/>
+          {% for error in form.sort.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+      </p>
+      <p>
+          {{ form.submit() }}
+      </p>
+</form>
+<table class='table table-hover table-bordered container'>
+    <thead class="thead-dark">
+    
+      <tr>
+        <!-- <th scope="col">Order ID</th> -->
+        <th scope="col">Order ID</th>
+        <th scope="col">Product ID</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Buyer Name</th>
+        <th scope="col">Buyer Address</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total Price</th>
+        <th scope="col">Time Placed</th>
+        <th scope="col">Status</th>
+        {% if status == 0 %}
+        <th scope="col"></th>
+        {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in x%}
+        <tr>
+          <!-- <th scope="row">{{order.id}}</th> -->
+          <td> {{order.id}} </td>
+          <td> {{ order.product_id }}</td>
+          <td> {{ order.product_name[0] }}</td>
+          <td> {{ order.buyer_firstname[0] }} {{ order.buyer_lastname[0] }}</td>
+          <td> {{ order.buyer_addr[0] }}</td>
+          <td> {{ '%0.2f'| format(order.price) }}</td>
+          <td> {{ order.quantity }}</td>
+          <td> {{ '%0.2f'|format(order.price * order.quantity) }}</td>
+          <td> {{ order.fulfillment_time }} </td>
+          <td> {{ order.status }}</td>
+          {% if status == 0 %}
+          <td><a id="fulfill-button" href="{{ url_for('orders.fulfill', oid=order.id, pid=order.product_id, sid=current_user.id) }}" type="button" class="btn btn-light btn-block">Mark Fulfilled</a></td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+<text>No results.</text>
+{% endif %}
+{% endblock %}
