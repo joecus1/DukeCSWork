@@ -1,0 +1,34 @@
+Your Name
+Your Net-ID
+
+Copy/Paste from running PercolationStats with these grid sizes: 
+grid sizes of 100, 200, 400, 800, 1600, and 3200
+and using 20 trials
+
+PercolationDFSFast
+
+(copy paste here)
+
+PercolationBF
+
+(copy paste here)
+
+PercolationUF with QuickUWPC
+
+(copy paste here)
+
+
+Answer these questions for PercolateUF with a QuickUWPC union-find object
+
+How does doubling the grid size affect running time (keeping # trials fixed)
+
+(answer)
+
+How does doubling the number of trials affect running time.
+
+(answer)
+
+Estimate the largest grid size you can run in 24 hours with 20 trials. Explain your reasoning.
+
+(answer)
+
